@@ -319,16 +319,6 @@ impl Error {
     }
 }
 
-impl<T: Display + Send + Sync> From<T> for Error {
-    fn from(e: T) -> Self {
-        Self {
-            message: e.to_string(),
-            source: None,
-            extensions: None,
-        }
-    }
-}
-
 /// An alias for `Result<T, Error>`.
 pub type Result<T, E = Error> = std::result::Result<T, E>;
 

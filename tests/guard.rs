@@ -23,7 +23,7 @@ impl Guard for RoleGuard {
         if ctx.data_opt::<Role>() == Some(&self.role) {
             Ok(())
         } else {
-            Err("Forbidden".into())
+            Err(Error::new("Forbidden"))
         }
     }
 }
